@@ -103,7 +103,8 @@ export function AdminReview() {
 
       {error && <div className="notice red" role="alert" style={{ marginBottom: 12 }}><span className="n-icon"><Icon name="alert-triangle" size={16} /></span><p>{error}</p></div>}
 
-      {tab === 'queue' && (
+      <div key={tab} className="tab-transition">
+        {tab === 'queue' && (
         <Card title="Validation queue" icon="clock" subtitle="Score-affecting requests awaiting a moderator decision. Nothing is awarded on submission alone.">
           {pending.length === 0 ? (
             <EmptyState icon="check-circle" title="Queue is clear">
@@ -387,6 +388,7 @@ export function AdminReview() {
           </div>
         </Card>
       )}
+      </div>
 
       <div className="footer-note">
         <div className="notice navy">

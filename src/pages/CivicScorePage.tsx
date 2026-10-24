@@ -44,7 +44,7 @@ export function CivicScorePage() {
           {/* --------------------------- progress --------------------------- */}
           <Card title="Progress toward the next level" icon="arrow-right">
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
-              <span style={{ fontSize: 30, fontWeight: 800, color: 'var(--navy-800)', letterSpacing: '-0.02em' }}>{summary.totalPoints}</span>
+              <span style={{ fontSize: 30, fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>{summary.totalPoints}</span>
               <span className="kbd-note">points · {summary.level.name}</span>
             </div>
             {summary.nextLevel ? (
@@ -90,7 +90,7 @@ export function CivicScorePage() {
                     <div className="ach-name">{b.name}</div>
                     <div className="ach-desc">
                       {b.description}
-                      {b.earned && b.earnedAt && <div style={{ marginTop: 2, color: 'var(--teal-700)', fontWeight: 650 }}>Earned {timeAgo(b.earnedAt)}</div>}
+                      {b.earned && b.earnedAt && <div style={{ marginTop: 2, color: 'var(--teal-400)', fontWeight: 650 }}>Earned {timeAgo(b.earnedAt)}</div>}
                     </div>
                   </div>
                   <span className="sr-only">{b.earned ? 'Earned' : 'Not yet earned'}</span>

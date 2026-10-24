@@ -21,22 +21,33 @@ export function Dashboard() {
 
   return (
     <>
-      <PageHeader
-        title={`Welcome back, ${user.name.split(' ')[0]}`}
-        subtitle="Community issue reporting with transparent, verified civic recognition."
-        actions={
-          <>
-            <Link className="btn btn-primary" to="/resident/issues/new">
-              <Icon name="plus" size={16} /> Report an issue
-            </Link>
-            <Link className="btn btn-secondary" to="/resident/issues">
-              <Icon name="flag" size={16} /> Browse issues
-            </Link>
-          </>
-        }
-      />
+      <div className="hero" style={{ marginBottom: 22 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <span className="badge teal" style={{ background: 'rgba(20, 184, 166, 0.16)', color: 'var(--teal-300)', borderColor: 'rgba(45, 212, 191, 0.35)' }}>
+            <Icon name="eye" size={13} /> CivicLens AI Platform
+          </span>
+          <span className="kbd-note" style={{ color: 'var(--navy-300)' }}>Ward Intelligence &amp; Recognition</span>
+        </div>
+        <h1>
+          Welcome back, {user.name.split(' ')[0]} — <span className="hero-teal">Empowering Community Action</span>.
+        </h1>
+        <p>
+          Reporting real-world civic challenges in <strong>{user.ward}</strong>. Every valid report, photo/video evidence, and verified resolution earns transparent civic score recognition.
+        </p>
+        <div className="hero-actions">
+          <Link className="btn btn-primary" to="/resident/issues/new">
+            <Icon name="plus" size={16} /> Report an issue
+          </Link>
+          <Link className="btn btn-secondary" to="/resident/issues" style={{ background: 'rgba(255, 255, 255, 0.1)', color: '#fff', borderColor: 'rgba(255, 255, 255, 0.22)' }}>
+            <Icon name="flag" size={16} /> Browse issues ({totalIssues})
+          </Link>
+          <Link className="btn btn-ghost" to="/resident/civic-score" style={{ color: 'var(--teal-300)' }}>
+            <Icon name="award" size={16} /> Civic Score ({summary.totalPoints} pts) →
+          </Link>
+        </div>
+      </div>
 
-      <div className="grid grid-4" style={{ marginBottom: 14 }}>
+      <div className="grid grid-4" style={{ marginBottom: 18 }}>
         <Stat icon="award" label="Civic Score" value={`${summary.totalPoints} pts`} hint={<Link to="/resident/civic-score">View breakdown →</Link>} />
         <Stat icon="check-circle" label="Verified contributions" value={summary.verifiedContributions} hint={`${summary.pendingCount} awaiting validation`} />
         <Stat icon="flag" label="My reports" value={myIssues.length} hint={`${totalIssues} issues tracked community-wide (demo)`} />

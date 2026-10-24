@@ -52,7 +52,12 @@ const STATUS_META: Record<IssueStatus, { tone: string; label: string }> = {
 
 export function StatusPill({ status }: { status: IssueStatus }) {
   const meta = STATUS_META[status];
-  return <Badge tone={meta.tone}>{meta.label}</Badge>;
+  return (
+    <Badge tone={meta.tone}>
+      <span className={`status-dot ${status}`} aria-hidden="true" />
+      {meta.label}
+    </Badge>
+  );
 }
 
 /* ------------------------------- Level badge -------------------------------- */
@@ -61,12 +66,10 @@ export function LevelBadge({ level, big }: { level: RecognitionLevel; big?: bool
   const icon =
     level.key === 'champion' ? 'star' : level.key === 'guardian' ? 'shield' : level.key === 'contributor' ? 'award' : 'eye';
   return (
-    <Badge tone="teal" >
-      <span className={big ? 'badge big teal' : ''}>
-        <Icon name={icon} size={big ? 15 : 13} />
-        {level.name}
-      </span>
-    </Badge>
+    <span className={`badge ${big ? 'big' : ''} teal`}>
+      <Icon name={icon} size={big ? 15 : 13} />
+      {level.name}
+    </span>
   );
 }
 

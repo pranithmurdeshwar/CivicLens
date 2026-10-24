@@ -268,7 +268,7 @@ export function ReportIssue() {
 
           {/* ----------------- Photos & Videos Upload Area ----------------- */}
           <div className="media-upload-area">
-            <label style={{ display: 'block', fontSize: 13, fontWeight: 650, color: 'var(--navy-700)', marginBottom: 6 }}>
+            <label style={{ display: 'block', fontSize: 13, fontWeight: 650, color: '#f1f5f9', marginBottom: 6 }}>
               Photos & Videos of the problem (optional)
             </label>
 
@@ -304,7 +304,7 @@ export function ReportIssue() {
               <div>
                 <div className="media-dropzone-title">Upload photos or videos of the problem</div>
                 <div className="media-dropzone-sub">
-                  Drag and drop files here, or <span style={{ color: 'var(--teal-700)', textDecoration: 'underline' }}>browse files</span> from your device
+                  Drag and drop files here, or <span style={{ color: 'var(--teal-400)', textDecoration: 'underline' }}>browse files</span> from your device
                 </div>
               </div>
               <div className="kbd-note">

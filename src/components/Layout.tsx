@@ -129,16 +129,19 @@ export function Layout() {
   const pendingValidations = isAdmin ? getValidations('pending').length : 0;
   const openFlags = isAdmin ? getFlagsRaw().filter((f) => f.status === 'open').length : 0;
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location.pathname]);
+
   return (
     <div className="app-shell">
       <aside className="sidebar">
         <div className="brand">
-          <span className="brand-mark" aria-hidden="true"><Icon name="eye" size={19} /></span>
-          <span>
-            <span className="brand-name">CivicLens AI</span>
-            <br />
-            <span className="brand-sub">Civic Score &amp; Recognition</span>
-          </span>
+          <span className="brand-mark" aria-hidden="true"><Icon name="eye" size={20} /></span>
+          <div>
+            <div className="brand-name">CivicLens AI</div>
+            <div className="brand-sub">Civic Score &amp; Recognition</div>
+          </div>
         </div>
         <span className="demo-chip">Fictional demo</span>
 
@@ -228,7 +231,9 @@ export function Layout() {
           </div>
         </header>
         <main className="page" id="main">
-          <Outlet />
+          <div key={location.pathname} className="page-transition">
+            <Outlet />
+          </div>
         </main>
       </div>
       <Toaster />

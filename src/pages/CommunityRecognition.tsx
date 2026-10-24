@@ -47,7 +47,7 @@ export function CommunityRecognition() {
                   {publicView ? user.name.charAt(0) : <Icon name="user" size={18} />}
                 </span>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 700, color: 'var(--navy-800)' }}>
+                  <div style={{ fontWeight: 700, color: '#ffffff' }}>
                     {publicView
                       ? isMe
                         ? `${user.name.split(' ')[0]} (you)`
